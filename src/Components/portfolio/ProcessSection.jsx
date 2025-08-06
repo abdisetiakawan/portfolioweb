@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 export default function ProcessSection() {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(null);
 
   const processSteps = [
     {
