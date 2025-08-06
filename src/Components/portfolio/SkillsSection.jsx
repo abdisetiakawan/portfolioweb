@@ -203,34 +203,34 @@ export default function SkillsSection() {
   };
 
   return (
-    <div className="py-16 px-4 relative">
+    <div className="py-8 md:py-16 px-4 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-3xl sm:text-4xl lg:text-6xl font-black text-black mb-6"
+            className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-4 md:mb-6"
             whileHover={{ scale: 1.05 }}
           >
             Technical <span className="text-[#FF6B6B]">Skills</span>
           </motion.h2>
-          <p className="text-base sm:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-6 md:mb-8 px-4">
             Comprehensive expertise across the{" "}
             <span className="font-black text-[#FF6B6B]">
               full technology stack
             </span>
             with deep specialization in backend development
           </p>
-          <div className="w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>
+          <div className="w-16 md:w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>
         </motion.div>
 
         {/* Category Tabs */}
         <motion.div
-          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -238,7 +238,7 @@ export default function SkillsSection() {
           {Object.entries(skillCategories).map(([key, category]) => (
             <motion.button
               key={key}
-              className={`flex items-center gap-2 sm:gap-3 px-3 sm:px-6 py-2 sm:py-3 rounded-full border-3 border-black font-black transition-all text-sm sm:text-base ${
+              className={`flex items-center gap-2 md:gap-3 px-3 py-2 md:px-6 md:py-3 rounded-full border-2 md:border-3 border-black font-black transition-all text-xs md:text-base ${
                 activeCategory === key
                   ? "text-white shadow-lg scale-105"
                   : "bg-white text-black hover:scale-105"
@@ -251,8 +251,9 @@ export default function SkillsSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <category.icon className="w-4 h-4 sm:w-5 sm:h-5" />
-              {category.title}
+              <category.icon className="w-3 h-3 md:w-5 md:h-5" />
+              <span className="hidden sm:inline">{category.title}</span>
+              <span className="sm:hidden">{category.title.split(" ")[0]}</span>
             </motion.button>
           ))}
         </motion.div>
@@ -260,26 +261,26 @@ export default function SkillsSection() {
         {/* Skills Display */}
         <motion.div
           key={activeCategory}
-          className="bg-white rounded-[20px] sm:rounded-[40px] border-4 border-black p-4 sm:p-8 shadow-2xl"
+          className="bg-white rounded-2xl md:rounded-[40px] border-2 md:border-4 border-black p-4 md:p-8 shadow-2xl"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="grid md:grid-cols-2 gap-4 sm:gap-8">
+          <div className="grid md:grid-cols-2 gap-4 md:gap-8">
             {skillCategories[activeCategory].skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
-                className="space-y-2 sm:space-y-4"
+                className="space-y-2 md:space-y-4"
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
                 <div className="flex justify-between items-center">
-                  <h3 className="text-base sm:text-lg font-black text-black">
+                  <h3 className="text-base md:text-lg font-black text-black">
                     {skill.name}
                   </h3>
                   <span
-                    className="text-xs sm:text-sm font-bold px-2 sm:px-3 py-1 rounded-full border-2 border-black"
+                    className="text-xs md:text-sm font-bold px-2 md:px-3 py-1 rounded-full border-2 border-black"
                     style={{
                       backgroundColor: skillCategories[activeCategory].color,
                       color: "white",
@@ -289,13 +290,13 @@ export default function SkillsSection() {
                   </span>
                 </div>
 
-                <p className="text-gray-600 font-medium text-xs sm:text-sm">
+                <p className="text-gray-600 font-medium text-sm md:text-base">
                   {skill.description}
                 </p>
 
                 {/* Progress Bar */}
                 <div className="relative">
-                  <div className="h-2 sm:h-3 bg-gray-200 rounded-full border-2 border-black overflow-hidden">
+                  <div className="h-2 md:h-3 bg-gray-200 rounded-full border-2 border-black overflow-hidden">
                     <motion.div
                       className="h-full rounded-full"
                       style={{
@@ -314,7 +315,7 @@ export default function SkillsSection() {
 
         {/* Quick Stats */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mt-8 sm:mt-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-8 md:mt-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -342,7 +343,7 @@ export default function SkillsSection() {
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
-              className="bg-white rounded-xl sm:rounded-2xl border-3 border-black p-3 sm:p-6 text-center shadow-lg"
+              className="bg-white rounded-xl md:rounded-2xl border-2 md:border-3 border-black p-4 md:p-6 text-center shadow-lg"
               whileHover={{ scale: 1.05, rotate: index % 2 === 0 ? 2 : -2 }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -350,15 +351,15 @@ export default function SkillsSection() {
               transition={{ delay: index * 0.1 }}
             >
               <div
-                className="w-8 h-8 sm:w-12 sm:h-12 rounded-full border-3 border-black flex items-center justify-center mx-auto mb-2 sm:mb-3"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 md:border-3 border-black flex items-center justify-center mx-auto mb-2 md:mb-3"
                 style={{ backgroundColor: stat.color }}
               >
-                <stat.icon className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
+                <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
               </div>
-              <div className="text-lg sm:text-2xl font-black text-black mb-1">
+              <div className="text-xl md:text-2xl font-black text-black mb-1">
                 {stat.number}
               </div>
-              <div className="text-gray-600 font-bold text-xs sm:text-sm">
+              <div className="text-gray-600 font-bold text-xs md:text-sm">
                 {stat.label}
               </div>
             </motion.div>
