@@ -87,12 +87,13 @@ export default function ContactSection() {
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl lg:text-6xl font-black text-black mb-6"
+            className="text-3xl sm:text-4xl lg:text-6xl font-black text-black mb-6"
             whileHover={{ scale: 1.05 }}
           >
             Let's <span className="text-[#FF6B6B]">Connect</span>
           </motion.h2>
           <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
+          <p className="text-base sm:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
             Ready to collaborate on your next{" "}
             <span className="font-black text-[#FF6B6B]">web project</span>?
             Let's discuss how I can help bring your ideas to life
@@ -101,6 +102,7 @@ export default function ContactSection() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -109,17 +111,17 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
           >
             <motion.div
-              className="bg-[#F5F1EB] rounded-[40px] border-4 border-black p-8 shadow-2xl"
+              className="bg-[#F5F1EB] rounded-[20px] sm:rounded-[40px] border-4 border-black p-4 sm:p-8 shadow-2xl"
               whileHover={{ scale: 1.01 }}
             >
-              <h3 className="text-3xl font-black text-black mb-8 text-center">
+              <h3 className="text-xl sm:text-3xl font-black text-black mb-4 sm:mb-8 text-center">
                 Send Me a <span className="text-[#FF6B6B]">Message</span>
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
                   <motion.div whileFocus={{ scale: 1.02 }}>
-                    <label className="block font-bold text-black mb-2">
+                    <label className="block font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">
                       Your Name
                     </label>
                     <input
@@ -127,14 +129,14 @@ export default function ContactSection() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full p-4 rounded-2xl border-3 border-black font-medium focus:outline-none focus:ring-4 focus:ring-[#FF6B6B]/30"
+                      className="w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl border-3 border-black font-medium focus:outline-none focus:ring-4 focus:ring-[#FF6B6B]/30 text-sm sm:text-base"
                       placeholder="Enter your name"
                       required
                     />
                   </motion.div>
 
                   <motion.div whileFocus={{ scale: 1.02 }}>
-                    <label className="block font-bold text-black mb-2">
+                    <label className="block font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">
                       Your Email
                     </label>
                     <input
@@ -142,7 +144,7 @@ export default function ContactSection() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full p-4 rounded-2xl border-3 border-black font-medium focus:outline-none focus:ring-4 focus:ring-[#FF6B6B]/30"
+                      className="w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl border-3 border-black font-medium focus:outline-none focus:ring-4 focus:ring-[#FF6B6B]/30 text-sm sm:text-base"
                       placeholder="Enter your email"
                       required
                     />
@@ -150,7 +152,7 @@ export default function ContactSection() {
                 </div>
 
                 <motion.div whileFocus={{ scale: 1.02 }}>
-                  <label className="block font-bold text-black mb-2">
+                  <label className="block font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">
                     Subject
                   </label>
                   <input
@@ -158,14 +160,14 @@ export default function ContactSection() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="w-full p-4 rounded-2xl border-3 border-black font-medium focus:outline-none focus:ring-4 focus:ring-[#FF6B6B]/30"
+                    className="w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl border-3 border-black font-medium focus:outline-none focus:ring-4 focus:ring-[#FF6B6B]/30 text-sm sm:text-base"
                     placeholder="What's this about?"
                     required
                   />
                 </motion.div>
 
                 <motion.div whileFocus={{ scale: 1.02 }}>
-                  <label className="block font-bold text-black mb-2">
+                  <label className="block font-bold text-black mb-1 sm:mb-2 text-sm sm:text-base">
                     Message
                   </label>
                   <textarea
@@ -173,7 +175,7 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={6}
-                    className="w-full p-4 rounded-2xl border-3 border-black font-medium focus:outline-none focus:ring-4 focus:ring-[#FF6B6B]/30 resize-none"
+                    className="w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl border-3 border-black font-medium focus:outline-none focus:ring-4 focus:ring-[#FF6B6B]/30 resize-none text-sm sm:text-base"
                     placeholder="Tell me about your project..."
                     required
                   />
@@ -181,11 +183,12 @@ export default function ContactSection() {
 
                 <motion.button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-[#FF6B6B] text-white font-black rounded-full border-4 border-black shadow-lg"
+                  className="w-full flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-[#FF6B6B] text-white font-black rounded-full border-4 border-black shadow-lg text-sm sm:text-base"
                   whileHover={{ scale: 1.02, rotate: -1 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <Send className="w-5 h-5" />
+                  <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                   Send Message
                 </motion.button>
               </form>
@@ -194,7 +197,7 @@ export default function ContactSection() {
 
           {/* Contact Info & Links */}
           <motion.div
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -202,14 +205,14 @@ export default function ContactSection() {
           >
             {/* Contact Information */}
             <motion.div
-              className="bg-white rounded-[30px] border-4 border-black p-8 shadow-2xl"
+              className="bg-white rounded-[20px] sm:rounded-[30px] border-4 border-black p-4 sm:p-8 shadow-2xl"
               whileHover={{ scale: 1.02 }}
             >
-              <h3 className="text-2xl font-black text-black mb-6">
+              <h3 className="text-lg sm:text-2xl font-black text-black mb-4 sm:mb-6">
                 Contact <span className="text-[#FF6B6B]">Information</span>
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={info.label}
@@ -220,24 +223,24 @@ export default function ContactSection() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <motion.div
-                      className="w-12 h-12 rounded-full border-3 border-black flex items-center justify-center"
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-3 border-black flex items-center justify-center"
                       style={{ backgroundColor: info.color }}
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <info.icon className="w-6 h-6 text-white" />
+                      <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </motion.div>
                     <div>
-                      <p className="font-bold text-black">{info.label}</p>
+                      <p className="font-bold text-black text-sm sm:text-base">{info.label}</p>
                       {info.href ? (
                         <a
                           href={info.href}
-                          className="text-gray-600 font-medium hover:text-[#FF6B6B] transition-colors"
+                          className="text-gray-600 font-medium hover:text-[#FF6B6B] transition-colors text-sm sm:text-base"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-600 font-medium">
+                        <p className="text-gray-600 font-medium text-sm sm:text-base">
                           {info.value}
                         </p>
                       )}
@@ -249,21 +252,21 @@ export default function ContactSection() {
 
             {/* Social Links */}
             <motion.div
-              className="bg-white rounded-[30px] border-4 border-black p-8 shadow-2xl"
+              className="bg-white rounded-[20px] sm:rounded-[30px] border-4 border-black p-4 sm:p-8 shadow-2xl"
               whileHover={{ scale: 1.02 }}
             >
-              <h3 className="text-2xl font-black text-black mb-6">
+              <h3 className="text-lg sm:text-2xl font-black text-black mb-4 sm:mb-6">
                 Follow <span className="text-[#FF6B6B]">Me</span>
               </h3>
 
-              <div className="flex gap-4">
+              <div className="flex gap-3 sm:gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-16 h-16 rounded-full border-4 border-black flex items-center justify-center shadow-lg"
+                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-full border-4 border-black flex items-center justify-center shadow-lg"
                     style={{ backgroundColor: social.color }}
                     whileHover={{ scale: 1.1, rotate: 10 }}
                     whileTap={{ scale: 0.9 }}
@@ -272,7 +275,7 @@ export default function ContactSection() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <social.icon className="w-8 h-8 text-white" />
+                    <social.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </motion.a>
                 ))}
               </div>
@@ -280,21 +283,21 @@ export default function ContactSection() {
 
             {/* Resume Download */}
             <motion.div
-              className="bg-[#F5F1EB] rounded-[30px] border-4 border-black p-8 shadow-2xl text-center"
+              className="bg-[#F5F1EB] rounded-[20px] sm:rounded-[30px] border-4 border-black p-4 sm:p-8 shadow-2xl text-center"
               whileHover={{ scale: 1.02 }}
             >
-              <h3 className="text-2xl font-black text-black mb-4">
+              <h3 className="text-lg sm:text-2xl font-black text-black mb-3 sm:mb-4">
                 Get My <span className="text-[#FF6B6B]">Resume</span>
               </h3>
-              <p className="text-gray-700 font-medium mb-6">
+              <p className="text-gray-700 font-medium mb-4 sm:mb-6 text-sm sm:text-base">
                 Download my complete CV with detailed experience and projects
               </p>
               <motion.button
-                className="flex items-center justify-center gap-3 px-8 py-4 bg-[#FFB347] text-white font-black rounded-full border-4 border-black shadow-lg mx-auto"
+                className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-[#FFB347] text-white font-black rounded-full border-4 border-black shadow-lg mx-auto text-sm sm:text-base"
                 whileHover={{ scale: 1.05, rotate: 2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Download className="w-5 h-5" />
+                <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                 Download CV
               </motion.button>
             </motion.div>

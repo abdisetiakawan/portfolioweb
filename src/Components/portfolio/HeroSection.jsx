@@ -21,7 +21,7 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.h1
-            className="text-5xl lg:text-7xl font-black text-black leading-tight"
+            className="text-3xl sm:text-4xl lg:text-7xl font-black text-black leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -32,7 +32,7 @@ export default function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="text-xl lg:text-2xl text-gray-700 font-medium max-w-lg"
+            className="text-base sm:text-lg lg:text-2xl text-gray-700 font-medium max-w-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -56,7 +56,7 @@ export default function HeroSection() {
             ].map((skill, index) => (
               <motion.div
                 key={skill.label}
-                className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border-3 border-black shadow-lg"
+                className="flex items-center gap-2 px-3 py-2 bg-white rounded-full border-3 border-black shadow-lg text-sm"
                 whileHover={{ scale: 1.05, y: -2 }}
                 style={{ borderColor: skill.color }}
               >
@@ -76,14 +76,14 @@ export default function HeroSection() {
             transition={{ delay: 0.8, duration: 0.8 }}
           >
             <motion.button
-              className="px-8 py-4 bg-[#FF6B6B] text-white font-black rounded-full border-4 border-black shadow-lg"
+              className="px-6 py-3 sm:px-8 sm:py-4 bg-[#FF6B6B] text-white font-black rounded-full border-4 border-black shadow-lg text-sm sm:text-base"
               whileHover={{ scale: 1.05, rotate: -1 }}
               whileTap={{ scale: 0.95 }}
             >
               View My Work
             </motion.button>
             <motion.button
-              className="px-8 py-4 bg-white text-black font-black rounded-full border-4 border-black shadow-lg"
+              className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-black font-black rounded-full border-4 border-black shadow-lg text-sm sm:text-base"
               whileHover={{ scale: 1.05, rotate: 1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -99,12 +99,12 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <div className="relative w-full h-[500px]">
+          <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px]">
             {/* Main Blob Shape */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-br from-[#FF6B6B] to-[#FFB347] rounded-[60px] border-4 border-black shadow-2xl"
+              className="absolute inset-0 bg-gradient-to-br from-[#FF6B6B] to-[#FFB347] rounded-[30px] sm:rounded-[60px] border-4 border-black shadow-2xl"
               animate={{
-                borderRadius: ["60px", "80px", "60px"],
+                borderRadius: ["30px", "40px", "30px"],
                 rotate: [0, 5, -5, 0],
               }}
               transition={{
@@ -117,11 +117,11 @@ export default function HeroSection() {
             {/* Code Elements */}
             <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
-                className="bg-black/90 rounded-[40px] p-8 border-4 border-white"
+                className="bg-black/90 rounded-[20px] sm:rounded-[40px] p-4 sm:p-8 border-4 border-white"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 4, repeat: Infinity }}
               >
-                <div className="text-[#4ECDC4] font-mono text-sm space-y-2">
+                <div className="text-[#4ECDC4] font-mono text-xs sm:text-sm space-y-1 sm:space-y-2">
                   <div>
                     const <span className="text-[#FFB347]">developer</span> ={" "}
                     {`{`}
@@ -154,27 +154,27 @@ export default function HeroSection() {
               {
                 icon: Database,
                 color: "#4ECDC4",
-                position: { top: "10%", left: "10%" },
+                position: { top: "10%", left: "5%" },
               },
               {
                 icon: Cloud,
                 color: "#FFB347",
-                position: { top: "20%", right: "10%" },
+                position: { top: "20%", right: "5%" },
               },
               {
                 icon: Zap,
                 color: "#FF6B6B",
-                position: { bottom: "20%", left: "20%" },
+                position: { bottom: "20%", left: "10%" },
               },
               {
                 icon: Code,
                 color: "#4ECDC4",
-                position: { bottom: "10%", right: "20%" },
+                position: { bottom: "10%", right: "10%" },
               },
             ].map((item, index) => (
               <motion.div
                 key={index}
-                className="absolute w-12 h-12 bg-white rounded-full border-3 border-black flex items-center justify-center shadow-lg"
+                className="absolute w-8 h-8 sm:w-12 sm:h-12 bg-white rounded-full border-3 border-black flex items-center justify-center shadow-lg"
                 style={item.position}
                 animate={{
                   y: [0, -20, 0],
@@ -186,7 +186,7 @@ export default function HeroSection() {
                   delay: index * 0.5,
                 }}
               >
-                <item.icon className="w-6 h-6" style={{ color: item.color }} />
+                <item.icon className="w-4 h-4 sm:w-6 sm:h-6" style={{ color: item.color }} />
               </motion.div>
             ))}
           </div>

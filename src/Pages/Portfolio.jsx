@@ -93,19 +93,19 @@ export default function Portfolio() {
 
       {/* Navigation */}
       <motion.nav
-        className="fixed top-0 left-0 right-0 z-50 p-4"
+        className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-4"
         initial={{ y: -120 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
       >
-        <div className="max-w-6xl mx-auto bg-[#F5F1EB]/80 backdrop-blur-md rounded-full border-4 border-black p-2 shadow-lg">
-          <div className="flex justify-between items-center px-4">
+        <div className="max-w-6xl mx-auto bg-[#F5F1EB]/80 backdrop-blur-md rounded-full border-4 border-black p-1 sm:p-2 shadow-lg">
+          <div className="flex justify-between items-center px-2 sm:px-4">
             {/* Logo */}
             <motion.div
-              className="px-4 py-1 bg-[#FF6B6B] rounded-full border-3 border-black"
+              className="px-3 sm:px-4 py-1 bg-[#FF6B6B] rounded-full border-3 border-black"
               whileHover={{ scale: 1.05 }}
             >
-              <span className="text-xl font-black text-white">FS</span>
+              <span className="text-lg sm:text-xl font-black text-white">FS</span>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -115,7 +115,7 @@ export default function Portfolio() {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => handleNavClick(item.id, e)}
-                  className={`relative px-4 py-2 font-bold transition-colors rounded-full ${
+                  className={`relative px-3 sm:px-4 py-2 font-bold transition-colors rounded-full text-sm sm:text-base ${
                     activeSection === item.id
                       ? "text-white"
                       : "text-black hover:text-[#FF6B6B]"
@@ -139,15 +139,15 @@ export default function Portfolio() {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden px-3 py-2 bg-white rounded-full border-3 border-black"
+              className="md:hidden px-2 sm:px-3 py-2 bg-white rounded-full border-3 border-black"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-black" />
+                <X className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
               ) : (
-                <Menu className="w-6 h-6 text-black" />
+                <Menu className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
               )}
             </motion.button>
           </div>
@@ -157,20 +157,20 @@ export default function Portfolio() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              className="md:hidden mt-4 max-w-6xl mx-auto bg-white/95 backdrop-blur-md rounded-[30px] border-4 border-black shadow-2xl overflow-hidden"
+              className="md:hidden mt-2 sm:mt-4 max-w-6xl mx-auto bg-white/95 backdrop-blur-md rounded-[20px] sm:rounded-[30px] border-4 border-black shadow-2xl overflow-hidden"
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="p-6">
-                <div className="space-y-2">
+              <div className="p-3 sm:p-6">
+                <div className="space-y-1 sm:space-y-2">
                   {navigationItems.map((item, index) => (
                     <motion.a
                       key={item.id}
                       href={`#${item.id}`}
                       onClick={(e) => handleNavClick(item.id, e)}
-                      className={`block px-6 py-3 rounded-2xl font-bold transition-all ${
+                      className={`block px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl font-bold transition-all text-sm sm:text-base ${
                         activeSection === item.id
                           ? "bg-[#FF6B6B] text-white border-3 border-black"
                           : "bg-gray-100 text-black hover:bg-[#FFB347] hover:text-white border-2 border-gray-300"
