@@ -102,22 +102,22 @@ export default function ProcessSection() {
   ];
 
   return (
-    <div className="py-16 px-4 relative bg-white">
+    <div className="py-8 md:py-16 px-4 relative bg-white">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl lg:text-6xl font-black text-black mb-6"
+            className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-4 md:mb-6"
             whileHover={{ scale: 1.05 }}
           >
             My Development <span className="text-[#FF6B6B]">Process</span>
           </motion.h2>
-          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-6 md:mb-8 px-4">
             As a senior software engineer approach, here's how I deliver
             <span className="font-black text-[#FF6B6B]">
               {" "}
@@ -125,11 +125,11 @@ export default function ProcessSection() {
             </span>
             from concept to production
           </p>
-          <div className="w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>
+          <div className="w-16 md:w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>
         </motion.div>
 
         {/* Process Steps */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-8 md:mb-16">
           {processSteps.map((step, index) => (
             <motion.div
               key={index}
@@ -143,26 +143,26 @@ export default function ProcessSection() {
               transition={{ delay: index * 0.1 }}
             >
               <div
-                className={`bg-white rounded-[30px] border-4 p-6 shadow-lg transition-all ${
+                className={`bg-white rounded-2xl md:rounded-[30px] border-2 md:border-4 p-4 md:p-6 shadow-lg transition-all ${
                   activeStep === index
                     ? "border-black shadow-2xl"
                     : "border-gray-300"
                 }`}
               >
-                <div className="flex items-center gap-4 mb-4">
+                <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
                   <motion.div
-                    className="w-16 h-16 rounded-full border-4 border-black flex items-center justify-center"
+                    className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 md:border-4 border-black flex items-center justify-center"
                     style={{ backgroundColor: step.color }}
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <step.icon className="w-8 h-8 text-white" />
+                    <step.icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
                   </motion.div>
                   <div>
-                    <h3 className="text-xl font-black text-black">
+                    <h3 className="text-base md:text-xl font-black text-black">
                       {step.title}
                     </h3>
-                    <p className="text-gray-600 font-medium">
+                    <p className="text-gray-600 font-medium text-sm md:text-base">
                       {step.description}
                     </p>
                   </div>
@@ -170,25 +170,25 @@ export default function ProcessSection() {
 
                 {activeStep === index && (
                   <motion.div
-                    className="mt-6"
+                    className="mt-4 md:mt-6"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="space-y-3">
+                    <div className="space-y-2 md:space-y-3">
                       {step.details.map((detail, detailIndex) => (
                         <motion.div
                           key={detailIndex}
-                          className="flex items-start gap-3"
+                          className="flex items-start gap-2 md:gap-3"
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: detailIndex * 0.1 }}
                         >
                           <CheckCircle2
-                            className="w-5 h-5 mt-0.5 flex-shrink-0"
+                            className="w-4 h-4 md:w-5 md:h-5 mt-0.5 flex-shrink-0"
                             style={{ color: step.color }}
                           />
-                          <p className="text-gray-700 font-medium text-sm">
+                          <p className="text-gray-700 font-medium text-xs md:text-sm">
                             {detail}
                           </p>
                         </motion.div>
@@ -203,16 +203,16 @@ export default function ProcessSection() {
 
         {/* Process Flow Visualization */}
         <motion.div
-          className="bg-[#F5F1EB] rounded-[40px] border-4 border-black p-8 shadow-2xl"
+          className="bg-[#F5F1EB] rounded-2xl md:rounded-[40px] border-2 md:border-4 border-black p-4 md:p-8 shadow-2xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl font-black text-black text-center mb-8">
+          <h3 className="text-2xl md:text-3xl font-black text-black text-center mb-6 md:mb-8">
             Professional <span className="text-[#FF6B6B]">Workflow</span>
           </h3>
 
-          <div className="flex flex-wrap justify-center items-center gap-4">
+          <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4">
             {processSteps.map((step, index) => (
               <React.Fragment key={index}>
                 <motion.div
@@ -220,26 +220,26 @@ export default function ProcessSection() {
                   whileHover={{ scale: 1.1 }}
                 >
                   <div
-                    className="w-12 h-12 rounded-full border-3 border-black flex items-center justify-center mb-2"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 md:border-3 border-black flex items-center justify-center mb-1 md:mb-2"
                     style={{ backgroundColor: step.color }}
                   >
-                    <step.icon className="w-6 h-6 text-white" />
+                    <step.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
-                  <p className="text-xs font-bold text-black text-center max-w-20">
+                  <p className="text-xs md:text-xs font-bold text-black text-center max-w-16 md:max-w-20">
                     {step.title.split(" ")[0]}
                   </p>
                 </motion.div>
 
                 {index < processSteps.length - 1 && (
-                  <ArrowRight className="w-6 h-6 text-gray-400 hidden md:block" />
+                  <ArrowRight className="w-4 h-4 md:w-6 md:h-6 text-gray-400 hidden sm:block" />
                 )}
               </React.Fragment>
             ))}
           </div>
 
-          <div className="text-center mt-8">
+          <div className="text-center mt-6 md:mt-8">
             <motion.p
-              className="text-lg font-medium text-gray-700 max-w-4xl mx-auto"
+              className="text-base md:text-lg font-medium text-gray-700 max-w-4xl mx-auto px-4"
               whileHover={{ scale: 1.02 }}
             >
               This systematic approach ensures{" "}
