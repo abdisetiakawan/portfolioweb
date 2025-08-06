@@ -1,26 +1,25 @@
-/* Import Google Fonts */
+/* ===== IMPORTS ===== */
+/* Google Fonts - Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-/* atau pilih salah satu font berikut: */
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap'); */
 
+/* Tailwind CSS */
 @import "tailwindcss";
 
-/* Custom font configuration */
+/* ===== BASE STYLES ===== */
+/* Apply Inter font globally */
 * {
   font-family: 'Inter', sans-serif;
-    /* atau ganti dengan font pilihan: */
-      /* font-family: 'Poppins', sans-serif; */
-        /* font-family: 'Montserrat', sans-serif; */
-  }
+}
 
-        /* Optional: Custom typography classes */
+/* ===== UTILITY CLASSES ===== */
+/* Heading typography */
 .font-heading {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
- }
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
 
-  .font-body {
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
+/* Body typography */
+.font-body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
 }
