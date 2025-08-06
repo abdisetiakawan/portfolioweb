@@ -100,7 +100,6 @@ export default function ProjectsSection() {
           >
             Featured <span className="text-[#FF6B6B]">Projects</span>
           </motion.h2>
-          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
           <p className="text-base sm:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
             Showcasing{" "}
             <span className="font-black text-[#FF6B6B]">

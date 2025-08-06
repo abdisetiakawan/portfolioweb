@@ -92,7 +92,6 @@ export default function ContactSection() {
           >
             Let's <span className="text-[#FF6B6B]">Connect</span>
           </motion.h2>
-          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
           <p className="text-base sm:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
             Ready to collaborate on your next{" "}
             <span className="font-black text-[#FF6B6B]">web project</span>?
@@ -101,7 +100,6 @@ export default function ContactSection() {
           <div className="w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-16">
           {/* Contact Form */}
           <motion.div
@@ -187,7 +185,6 @@ export default function ContactSection() {
                   whileHover={{ scale: 1.02, rotate: -1 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <Send className="w-5 h-5" />
                   <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                   Send Message
                 </motion.button>
