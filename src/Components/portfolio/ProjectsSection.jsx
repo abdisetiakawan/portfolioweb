@@ -22,7 +22,8 @@ export default function ProjectsSection() {
       id: 1,
       title: "E-Commerce Platform",
       category: "Full Stack Development",
-      description: "Modern e-commerce platform with advanced features including real-time inventory management, payment integration, and analytics dashboard.",
+      description:
+        "Modern e-commerce platform with advanced features including real-time inventory management, payment integration, and analytics dashboard.",
       images: [
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
@@ -31,9 +32,10 @@ export default function ProjectsSection() {
       ],
       videos: [
         {
-          thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop",
-          url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-        }
+          thumbnail:
+            "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop",
+          url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        },
       ],
       technologies: ["React", "Node.js", "MongoDB", "Stripe", "Socket.io"],
       liveUrl: "https://example.com",
@@ -45,8 +47,9 @@ export default function ProjectsSection() {
     {
       id: 2,
       title: "Task Management App",
-      category: "Web Application", 
-      description: "Collaborative task management application with real-time updates and team collaboration features.",
+      category: "Web Application",
+      description:
+        "Collaborative task management application with real-time updates and team collaboration features.",
       images: [
         "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=600&fit=crop",
@@ -64,7 +67,8 @@ export default function ProjectsSection() {
       id: 3,
       title: "Learning Management System",
       category: "Educational Platform",
-      description: "Comprehensive LMS with course creation, student progress tracking, and interactive learning modules.",
+      description:
+        "Comprehensive LMS with course creation, student progress tracking, and interactive learning modules.",
       images: [
         "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&h=600&fit=crop",
@@ -72,13 +76,15 @@ export default function ProjectsSection() {
       ],
       videos: [
         {
-          thumbnail: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
-          url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+          thumbnail:
+            "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
+          url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
         },
         {
-          thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop", 
-          url: "https://www.youtube.com/embed/dQw4w9WgXcQ"
-        }
+          thumbnail:
+            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
+          url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        },
       ],
       technologies: ["Next.js", "PostgreSQL", "Prisma", "AWS S3", "WebRTC"],
       liveUrl: "https://example.com",
@@ -86,46 +92,57 @@ export default function ProjectsSection() {
       duration: "6 months",
       team: "5 Developers",
       status: "Completed",
-    }
+    },
   ];
 
   const handleMediaNavigation = (projectId, direction) => {
-    const project = projects.find(p => p.id === projectId);
+    const project = projects.find((p) => p.id === projectId);
     const totalMedia = project.images.length + project.videos.length;
     const currentIndex = activeMediaIndex[projectId] || 0;
-    
+
     let newIndex;
-    if (direction === 'next') {
+    if (direction === "next") {
       newIndex = currentIndex >= totalMedia - 1 ? 0 : currentIndex + 1;
     } else {
       newIndex = currentIndex <= 0 ? totalMedia - 1 : currentIndex - 1;
     }
-    
-    setActiveMediaIndex(prev => ({
+
+    setActiveMediaIndex((prev) => ({
       ...prev,
-      [projectId]: newIndex
+      [projectId]: newIndex,
     }));
   };
 
   const handleMediaClick = (projectId, mediaIndex) => {
-    setActiveMediaIndex(prev => ({
+    setActiveMediaIndex((prev) => ({
       ...prev,
-      [projectId]: mediaIndex
+      [projectId]: mediaIndex,
     }));
   };
 
   const renderMainMedia = (project) => {
     const currentIndex = activeMediaIndex[project.id] || 0;
-    const allMedia = [...project.images.map((img, idx) => ({ type: 'image', src: img, index: idx })), 
-                     ...project.videos.map((vid, idx) => ({ type: 'video', src: vid.url, thumbnail: vid.thumbnail, index: idx + project.images.length }))];
-    
+    const allMedia = [
+      ...project.images.map((img, idx) => ({
+        type: "image",
+        src: img,
+        index: idx,
+      })),
+      ...project.videos.map((vid, idx) => ({
+        type: "video",
+        src: vid.url,
+        thumbnail: vid.thumbnail,
+        index: idx + project.images.length,
+      })),
+    ];
+
     const currentMedia = allMedia[currentIndex];
-    
+
     if (!currentMedia) return null;
 
     return (
       <div className="relative aspect-video bg-gray-200 rounded-2xl overflow-hidden group">
-        {currentMedia.type === 'image' ? (
+        {currentMedia.type === "image" ? (
           <img
             src={currentMedia.src}
             alt={`${project.title} - Image ${currentIndex + 1}`}
@@ -139,22 +156,21 @@ export default function ProjectsSection() {
               className="w-full h-full"
               frameBorder="0"
               allowFullScreen
-            />
+            ></iframe>
           </div>
         )}
-        
-        {/* Navigation Arrows */}
+
         {allMedia.length > 1 && (
           <>
             <button
-              onClick={() => handleMediaNavigation(project.id, 'prev')}
+              onClick={() => handleMediaNavigation(project.id, "prev")}
               className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
-            
+
             <button
-              onClick={() => handleMediaNavigation(project.id, 'next')}
+              onClick={() => handleMediaNavigation(project.id, "next")}
               className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
             >
               <ChevronRight className="w-6 h-6" />
@@ -162,9 +178,8 @@ export default function ProjectsSection() {
           </>
         )}
 
-        {/* Media Type Badge */}
         <div className="absolute top-4 left-4 flex items-center gap-2">
-          {currentMedia.type === 'image' ? (
+          {currentMedia.type === "image" ? (
             <div className="bg-[#4ECDC4] text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
               <ImageIcon className="w-4 h-4" />
               Image
@@ -177,7 +192,6 @@ export default function ProjectsSection() {
           )}
         </div>
 
-        {/* Media Counter */}
         <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-bold">
           {currentIndex + 1} / {allMedia.length}
         </div>
@@ -186,9 +200,19 @@ export default function ProjectsSection() {
   };
 
   const renderMediaGrid = (project) => {
-    const allMedia = [...project.images.map((img, idx) => ({ type: 'image', src: img, index: idx })), 
-                     ...project.videos.map((vid, idx) => ({ type: 'video', src: vid.thumbnail, index: idx + project.images.length }))];
-    
+    const allMedia = [
+      ...project.images.map((img, idx) => ({
+        type: "image",
+        src: img,
+        index: idx,
+      })),
+      ...project.videos.map((vid, idx) => ({
+        type: "video",
+        src: vid.thumbnail,
+        index: idx + project.images.length,
+      })),
+    ];
+
     if (allMedia.length <= 1) return null;
 
     return (
@@ -197,9 +221,9 @@ export default function ProjectsSection() {
           <motion.div
             key={index}
             className={`relative aspect-square bg-gray-200 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${
-              (activeMediaIndex[project.id] || 0) === media.index 
-                ? 'border-[#FF6B6B] scale-95' 
-                : 'border-transparent hover:border-[#FFB347]'
+              (activeMediaIndex[project.id] || 0) === media.index
+                ? "border-[#FF6B6B] scale-95"
+                : "border-transparent hover:border-[#FFB347]"
             }`}
             onClick={() => handleMediaClick(project.id, media.index)}
             whileHover={{ scale: 1.05 }}
@@ -210,24 +234,21 @@ export default function ProjectsSection() {
               alt={`${project.title} - Thumbnail ${index + 1}`}
               className="w-full h-full object-cover"
             />
-            
-            {/* Video Play Icon Overlay */}
-            {media.type === 'video' && (
+
+            {media.type === "video" && (
               <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                 <div className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center">
                   <Play className="w-4 h-4 text-black ml-0.5" />
                 </div>
               </div>
             )}
-            
-            {/* Selection Indicator */}
+
             {(activeMediaIndex[project.id] || 0) === media.index && (
               <div className="absolute inset-0 bg-[#FF6B6B]/20 border-2 border-[#FF6B6B] rounded-lg" />
             )}
           </motion.div>
         ))}
-        
-        {/* More Items Indicator */}
+
         {allMedia.length > 8 && (
           <div className="relative aspect-square bg-black/80 rounded-lg flex items-center justify-center text-white font-bold text-sm">
             +{allMedia.length - 8}
@@ -240,7 +261,6 @@ export default function ProjectsSection() {
   return (
     <div className="py-16 px-4 bg-[#F5F1EB] relative">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -256,46 +276,53 @@ export default function ProjectsSection() {
           </motion.h2>
           <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
             Showcasing my latest work in
-            <span className="font-black text-[#FF6B6B]"> web development</span>
-            , from concept to production
+            <span className="font-black text-[#FF6B6B]"> web development</span>,
+            from concept to production
           </p>
           <div className="w-24 h-2 bg-[#4ECDC4] rounded-full mx-auto border-2 border-black"></div>
         </motion.div>
 
-        {/* Projects */}
         <div className="space-y-16">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
               className={`grid lg:grid-cols-2 gap-8 items-start ${
-                index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
+                index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
               }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
-              {/* Media Section */}
-              <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+              <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
                 <div className="bg-white rounded-3xl border-4 border-black shadow-lg p-6">
                   {renderMainMedia(project)}
                   {renderMediaGrid(project)}
                 </div>
               </div>
 
-              {/* Content Section */}
-              <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
+              <div
+                className={`space-y-6 ${
+                  index % 2 === 1 ? "lg:col-start-1" : ""
+                }`}
+              >
                 <motion.div
                   className="bg-white rounded-3xl border-4 border-black shadow-lg p-8"
                   whileHover={{ scale: 1.02 }}
                 >
-                  {/* Project Header */}
                   <div className="mb-6">
                     <div className="flex items-center gap-3 mb-4">
-                      <div 
+                      <div
                         className="w-4 h-4 rounded-full border-2 border-black"
-                        style={{ backgroundColor: index % 3 === 0 ? '#FF6B6B' : index % 3 === 1 ? '#FFB347' : '#4ECDC4' }}
-                      />
+                        style={{
+                          backgroundColor:
+                            index % 3 === 0
+                              ? "#FF6B6B"
+                              : index % 3 === 1
+                              ? "#FFB347"
+                              : "#4ECDC4",
+                        }}
+                      ></div>
                       <span className="text-sm font-bold text-gray-600 uppercase tracking-wide">
                         {project.category}
                       </span>
@@ -308,19 +335,21 @@ export default function ProjectsSection() {
                     </p>
                   </div>
 
-                  {/* Project Meta */}
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="flex items-center gap-2">
                       <Calendar className="w-5 h-5 text-[#FF6B6B]" />
-                      <span className="font-medium text-gray-700">{project.duration}</span>
+                      <span className="font-medium text-gray-700">
+                        {project.duration}
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Users className="w-5 h-5 text-[#FFB347]" />
-                      <span className="font-medium text-gray-700">{project.team}</span>
+                      <span className="font-medium text-gray-700">
+                        {project.team}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Technologies */}
                   <div className="mb-8">
                     <h4 className="text-lg font-black text-black mb-3 flex items-center gap-2">
                       <Code className="w-5 h-5 text-[#4ECDC4]" />
@@ -338,7 +367,6 @@ export default function ProjectsSection() {
                     </div>
                   </div>
 
-                  {/* Action Buttons */}
                   <div className="flex gap-4">
                     <motion.a
                       href={project.liveUrl}
@@ -352,7 +380,7 @@ export default function ProjectsSection() {
                       Live Demo
                       <ArrowUpRight className="w-4 h-4" />
                     </motion.a>
-                    
+
                     <motion.a
                       href={project.githubUrl}
                       target="_blank"
@@ -365,13 +393,12 @@ export default function ProjectsSection() {
                       Source Code
                     </motion.a>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* View More Button */}
         <motion.div
           className="text-center mt-16"
           initial={{ opacity: 0, y: 30 }}
