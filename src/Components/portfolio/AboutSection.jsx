@@ -39,8 +39,12 @@ export default function AboutSection() {
               <div className="w-full h-full bg-gradient-to-br from-[#FF6B6B] to-[#FFB347] rounded-[50px] border-4 border-black shadow-2xl flex items-center justify-center">
                 <div className="text-center text-white">
                   <User className="w-12 h-12 sm:w-20 sm:h-20 mx-auto mb-2 sm:mb-4" />
-                  <p className="font-black text-sm sm:text-xl">Your Portrait Photo</p>
-                  <p className="font-medium text-xs sm:text-base">Professional Headshot</p>
+                  <p className="font-black text-sm sm:text-xl">
+                    Your Portrait Photo
+                  </p>
+                  <p className="font-medium text-xs sm:text-base">
+                    Professional Headshot
+                  </p>
                 </div>
               </div>
 

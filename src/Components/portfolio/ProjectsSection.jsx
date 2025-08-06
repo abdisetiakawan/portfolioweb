@@ -100,7 +100,6 @@ export default function ProjectsSection() {
           >
             Featured <span className="text-[#FF6B6B]">Projects</span>
           </motion.h2>
-          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
           <p className="text-base sm:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
             Showcasing{" "}
             <span className="font-black text-[#FF6B6B]">
@@ -155,8 +154,12 @@ export default function ProjectsSection() {
             >
               <div className="text-center text-gray-500">
                 <Code className="w-12 h-12 sm:w-20 sm:h-20 mx-auto mb-2 sm:mb-4" />
-                <p className="font-black text-sm sm:text-xl">Project Screenshot</p>
-                <p className="font-medium text-xs sm:text-base">Live Demo Available</p>
+                <p className="font-black text-sm sm:text-xl">
+                  Project Screenshot
+                </p>
+                <p className="font-medium text-xs sm:text-base">
+                  Live Demo Available
+                </p>
               </div>
             </div>
 
@@ -222,7 +225,9 @@ export default function ProjectsSection() {
                       className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                       style={{ backgroundColor: projects[activeProject].color }}
                     />
-                    <p className="text-gray-700 font-medium text-sm sm:text-base">{feature}</p>
+                    <p className="text-gray-700 font-medium text-sm sm:text-base">
+                      {feature}
+                    </p>
                   </motion.div>
                 ))}
               </div>

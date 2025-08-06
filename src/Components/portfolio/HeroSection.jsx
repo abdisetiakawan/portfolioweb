@@ -53,7 +53,7 @@ export default function HeroSection() {
               { icon: Database, label: "Backend Expert", color: "#FF6B6B" },
               { icon: Code, label: "Fullstack Dev", color: "#FFB347" },
               { icon: Cloud, label: "Cloud Native", color: "#4ECDC4" },
-            ].map((skill, index) => (
+            ].map((skill) => (
               <motion.div
                 key={skill.label}
                 className="flex items-center gap-2 px-3 py-2 bg-white rounded-full border-3 border-black shadow-lg text-sm"
@@ -186,7 +186,10 @@ export default function HeroSection() {
                   delay: index * 0.5,
                 }}
               >
-                <item.icon className="w-4 h-4 sm:w-6 sm:h-6" style={{ color: item.color }} />
+                <item.icon
+                  className="w-4 h-4 sm:w-6 sm:h-6"
+                  style={{ color: item.color }}
+                />
               </motion.div>
             ))}
           </div>

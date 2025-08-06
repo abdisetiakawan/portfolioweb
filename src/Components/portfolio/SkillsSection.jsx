@@ -218,7 +218,6 @@ export default function SkillsSection() {
           >
             Technical <span className="text-[#FF6B6B]">Skills</span>
           </motion.h2>
-          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
           <p className="text-base sm:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
             Comprehensive expertise across the{" "}
             <span className="font-black text-[#FF6B6B]">
@@ -266,7 +265,6 @@ export default function SkillsSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="grid md:grid-cols-2 gap-8">
           <div className="grid md:grid-cols-2 gap-4 sm:gap-8">
             {skillCategories[activeCategory].skills.map((skill, index) => (
               <motion.div
