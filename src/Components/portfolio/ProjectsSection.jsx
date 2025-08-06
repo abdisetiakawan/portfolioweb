@@ -141,7 +141,7 @@ export default function ProjectsSection() {
     if (!currentMedia) return null;
 
     return (
-      <div className="relative aspect-video bg-gray-200 rounded-2xl overflow-hidden group">
+      <div className="relative aspect-video bg-gray-200 rounded-xl md:rounded-2xl overflow-hidden group">
         {currentMedia.type === "image" ? (
           <img
             src={currentMedia.src}
@@ -164,35 +164,35 @@ export default function ProjectsSection() {
           <>
             <button
               onClick={() => handleMediaNavigation(project.id, "prev")}
-              className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+              className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 md:opacity-100"
             >
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
             </button>
 
             <button
               onClick={() => handleMediaNavigation(project.id, "next")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+              className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 md:opacity-100"
             >
-              <ChevronRight className="w-6 h-6" />
+              <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
             </button>
           </>
         )}
 
-        <div className="absolute top-4 left-4 flex items-center gap-2">
+        <div className="absolute top-2 md:top-4 left-2 md:left-4 flex items-center gap-2">
           {currentMedia.type === "image" ? (
-            <div className="bg-[#4ECDC4] text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
-              <ImageIcon className="w-4 h-4" />
-              Image
+            <div className="bg-[#4ECDC4] text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-bold flex items-center gap-1">
+              <ImageIcon className="w-3 h-3 md:w-4 md:h-4" />
+              <span className="hidden sm:inline">Image</span>
             </div>
           ) : (
-            <div className="bg-[#FF6B6B] text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
-              <Video className="w-4 h-4" />
-              Video
+            <div className="bg-[#FF6B6B] text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-bold flex items-center gap-1">
+              <Video className="w-3 h-3 md:w-4 md:h-4" />
+              <span className="hidden sm:inline">Video</span>
             </div>
           )}
         </div>
 
-        <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm font-bold">
+        <div className="absolute top-2 md:top-4 right-2 md:right-4 bg-black/70 text-white px-2 py-1 md:px-3 md:py-1 rounded-full text-xs md:text-sm font-bold">
           {currentIndex + 1} / {allMedia.length}
         </div>
       </div>
@@ -216,11 +216,11 @@ export default function ProjectsSection() {
     if (allMedia.length <= 1) return null;
 
     return (
-      <div className="grid grid-cols-4 gap-2 mt-4">
-        {allMedia.slice(0, 8).map((media, index) => (
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-1 md:gap-2 mt-3 md:mt-4">
+        {allMedia.slice(0, 6).map((media, index) => (
           <motion.div
             key={index}
-            className={`relative aspect-square bg-gray-200 rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${
+            className={`relative aspect-square bg-gray-200 rounded-md md:rounded-lg overflow-hidden cursor-pointer border-2 transition-all ${
               (activeMediaIndex[project.id] || 0) === media.index
                 ? "border-[#FF6B6B] scale-95"
                 : "border-transparent hover:border-[#FFB347]"
@@ -237,21 +237,21 @@ export default function ProjectsSection() {
 
             {media.type === "video" && (
               <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                <div className="w-8 h-8 bg-white/90 rounded-full flex items-center justify-center">
-                  <Play className="w-4 h-4 text-black ml-0.5" />
+                <div className="w-6 h-6 md:w-8 md:h-8 bg-white/90 rounded-full flex items-center justify-center">
+                  <Play className="w-3 h-3 md:w-4 md:h-4 text-black ml-0.5" />
                 </div>
               </div>
             )}
 
             {(activeMediaIndex[project.id] || 0) === media.index && (
-              <div className="absolute inset-0 bg-[#FF6B6B]/20 border-2 border-[#FF6B6B] rounded-lg" />
+              <div className="absolute inset-0 bg-[#FF6B6B]/20 border-2 border-[#FF6B6B] rounded-md md:rounded-lg" />
             )}
           </motion.div>
         ))}
 
-        {allMedia.length > 8 && (
-          <div className="relative aspect-square bg-black/80 rounded-lg flex items-center justify-center text-white font-bold text-sm">
-            +{allMedia.length - 8}
+        {allMedia.length > 6 && (
+          <div className="relative aspect-square bg-black/80 rounded-md md:rounded-lg flex items-center justify-center text-white font-bold text-xs md:text-sm">
+            +{allMedia.length - 6}
           </div>
         )}
       </div>
@@ -259,61 +259,65 @@ export default function ProjectsSection() {
   };
 
   return (
-    <div className="py-16 px-4 bg-[#F5F1EB] relative">
+    <div className="py-8 md:py-16 px-4 bg-[#F5F1EB] relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           <motion.h2
-            className="text-4xl lg:text-6xl font-black text-black mb-6"
+            className="text-3xl md:text-4xl lg:text-6xl font-black text-black mb-4 md:mb-6"
             whileHover={{ scale: 1.05 }}
           >
             Featured <span className="text-[#FF6B6B]">Projects</span>
           </motion.h2>
-          <p className="text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-6 md:mb-8 px-4">
             Showcasing my latest work in
             <span className="font-black text-[#FF6B6B]"> web development</span>,
             from concept to production
           </p>
-          <div className="w-24 h-2 bg-[#4ECDC4] rounded-full mx-auto border-2 border-black"></div>
+          <div className="w-16 md:w-24 h-2 bg-[#4ECDC4] rounded-full mx-auto border-2 border-black"></div>
         </motion.div>
 
-        <div className="space-y-16">
+        <div className="space-y-8 md:space-y-16">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className={`grid lg:grid-cols-2 gap-8 items-start ${
-                index % 2 === 1 ? "lg:grid-flow-col-dense" : ""
-              }`}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
             >
-              <div className={`${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
-                <div className="bg-white rounded-3xl border-4 border-black shadow-lg p-6">
+              {/* Media Section */}
+              <div
+                className={`order-1 ${
+                  index % 2 === 1 ? "lg:order-2" : "lg:order-1"
+                }`}
+              >
+                <div className="bg-white rounded-2xl md:rounded-3xl border-2 md:border-4 border-black shadow-lg p-3 md:p-6">
                   {renderMainMedia(project)}
                   {renderMediaGrid(project)}
                 </div>
               </div>
 
+              {/* Content Section */}
               <div
-                className={`space-y-6 ${
-                  index % 2 === 1 ? "lg:col-start-1" : ""
-                }`}
+                className={`order-2 ${
+                  index % 2 === 1 ? "lg:order-1" : "lg:order-2"
+                } space-y-4 md:space-y-6`}
               >
                 <motion.div
-                  className="bg-white rounded-3xl border-4 border-black shadow-lg p-8"
+                  className="bg-white rounded-2xl md:rounded-3xl border-2 md:border-4 border-black shadow-lg p-4 md:p-8"
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="mb-6">
-                    <div className="flex items-center gap-3 mb-4">
+                  <div className="mb-4 md:mb-6">
+                    <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
                       <div
-                        className="w-4 h-4 rounded-full border-2 border-black"
+                        className="w-3 h-3 md:w-4 md:h-4 rounded-full border-2 border-black"
                         style={{
                           backgroundColor:
                             index % 3 === 0
@@ -323,43 +327,43 @@ export default function ProjectsSection() {
                               : "#4ECDC4",
                         }}
                       ></div>
-                      <span className="text-sm font-bold text-gray-600 uppercase tracking-wide">
+                      <span className="text-xs md:text-sm font-bold text-gray-600 uppercase tracking-wide">
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="text-3xl lg:text-4xl font-black text-black mb-4">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-black text-black mb-3 md:mb-4">
                       {project.title}
                     </h3>
-                    <p className="text-gray-700 text-lg leading-relaxed">
+                    <p className="text-gray-700 text-base md:text-lg leading-relaxed">
                       {project.description}
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-4 md:mb-6">
                     <div className="flex items-center gap-2">
-                      <Calendar className="w-5 h-5 text-[#FF6B6B]" />
-                      <span className="font-medium text-gray-700">
+                      <Calendar className="w-4 h-4 md:w-5 md:h-5 text-[#FF6B6B]" />
+                      <span className="font-medium text-gray-700 text-sm md:text-base">
                         {project.duration}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Users className="w-5 h-5 text-[#FFB347]" />
-                      <span className="font-medium text-gray-700">
+                      <Users className="w-4 h-4 md:w-5 md:h-5 text-[#FFB347]" />
+                      <span className="font-medium text-gray-700 text-sm md:text-base">
                         {project.team}
                       </span>
                     </div>
                   </div>
 
-                  <div className="mb-8">
-                    <h4 className="text-lg font-black text-black mb-3 flex items-center gap-2">
-                      <Code className="w-5 h-5 text-[#4ECDC4]" />
+                  <div className="mb-6 md:mb-8">
+                    <h4 className="text-base md:text-lg font-black text-black mb-2 md:mb-3 flex items-center gap-2">
+                      <Code className="w-4 h-4 md:w-5 md:h-5 text-[#4ECDC4]" />
                       Technologies
                     </h4>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 md:gap-2">
                       {project.technologies.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-2 bg-[#F5F1EB] border-2 border-black rounded-xl text-sm font-medium hover:bg-[#FFB347] hover:text-white transition-colors"
+                          className="px-2 py-1 md:px-3 md:py-2 bg-[#F5F1EB] border-2 border-black rounded-lg md:rounded-xl text-xs md:text-sm font-medium hover:bg-[#FFB347] hover:text-white transition-colors"
                         >
                           {tech}
                         </span>
@@ -367,29 +371,29 @@ export default function ProjectsSection() {
                     </div>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
                     <motion.a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-[#FF6B6B] text-white font-bold rounded-2xl border-3 border-black hover:bg-[#FF5555] transition-colors"
+                      className="flex items-center justify-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-[#FF6B6B] text-white font-bold rounded-xl md:rounded-2xl border-2 md:border-3 border-black hover:bg-[#FF5555] transition-colors text-sm md:text-base"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <ExternalLink className="w-5 h-5" />
+                      <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
                       Live Demo
-                      <ArrowUpRight className="w-4 h-4" />
+                      <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
                     </motion.a>
 
                     <motion.a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-2xl border-3 border-black hover:bg-gray-100 transition-colors"
+                      className="flex items-center justify-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-white text-black font-bold rounded-xl md:rounded-2xl border-2 md:border-3 border-black hover:bg-gray-100 transition-colors text-sm md:text-base"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Github className="w-5 h-5" />
+                      <Github className="w-4 h-4 md:w-5 md:h-5" />
                       Source Code
                     </motion.a>
                   </div>
@@ -400,18 +404,18 @@ export default function ProjectsSection() {
         </div>
 
         <motion.div
-          className="text-center mt-16"
+          className="text-center mt-12 md:mt-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           <motion.button
-            className="px-8 py-4 bg-[#4ECDC4] text-white font-black rounded-2xl border-4 border-black hover:bg-[#45B7B8] transition-colors"
+            className="px-6 py-3 md:px-8 md:py-4 bg-[#4ECDC4] text-white font-black rounded-xl md:rounded-2xl border-2 md:border-4 border-black hover:bg-[#45B7B8] transition-colors text-sm md:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             View All Projects
-            <ArrowUpRight className="w-5 h-5 inline ml-2" />
+            <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 inline ml-2" />
           </motion.button>
         </motion.div>
       </div>
