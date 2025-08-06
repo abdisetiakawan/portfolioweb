@@ -69,21 +69,21 @@ export default function Portfolio() {
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
+    { id: "certifications", label: "Certificates" },
+    { id: "coming-soon", label: "Coming Soon" },
     { id: "contact", label: "Contact" },
   ];
 
   const handleNavClick = (sectionId, event) => {
     event.preventDefault();
 
-    // Set active immediately
     setActiveSection(sectionId);
     setMobileMenuOpen(false);
     setIsScrolling(true);
 
-    // Smooth scroll to section
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 100; // Offset untuk navbar
+      const offsetTop = element.offsetTop - 100;
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth",
@@ -99,10 +99,8 @@ export default function Portfolio() {
     <div className="min-h-screen bg-[#F5F1EB] overflow-x-hidden relative">
       <FloatingElements />
 
-      {/* Render komponen tombol dan berikan fungsi reset */}
       <ScrollToTopButton onReset={handleAnimationReset} />
 
-      {/* Navigation */}
       <motion.nav
         className="fixed top-0 left-0 right-0 z-50 p-2 sm:p-4"
         initial={{ y: -120 }}
@@ -111,7 +109,6 @@ export default function Portfolio() {
       >
         <div className="max-w-6xl mx-auto bg-[#F5F1EB]/80 backdrop-blur-md rounded-full border-4 border-black p-1 sm:p-2 shadow-lg">
           <div className="flex justify-between items-center px-2 sm:px-4">
-            {/* Logo */}
             <motion.div
               className="px-3 sm:px-4 py-1 bg-[#FF6B6B] rounded-full border-3 border-black"
               whileHover={{ scale: 1.05 }}
@@ -121,7 +118,6 @@ export default function Portfolio() {
               </span>
             </motion.div>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-2 relative">
               {navigationItems.map((item) => (
                 <a
@@ -150,7 +146,6 @@ export default function Portfolio() {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
             <motion.button
               className="md:hidden px-2 sm:px-3 py-2 bg-white rounded-full border-3 border-black"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -166,7 +161,6 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -204,7 +198,6 @@ export default function Portfolio() {
         </AnimatePresence>
       </motion.nav>
 
-      {/* Main Content dengan `key` untuk me-reset animasi */}
       <main key={pageKey}>
         <section id="hero">
           <HeroSection />
