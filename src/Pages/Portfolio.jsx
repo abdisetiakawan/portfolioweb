@@ -11,11 +11,20 @@ import CertificationsSection from "../Components/portfolio/CertificationsSection
 import ComingSoonSection from "../Components/portfolio/ComingSoonSection";
 import ContactSection from "../Components/portfolio/ContactSection";
 import FloatingElements from "../Components/portfolio/FloatingElements";
+import ScrollToTopButton from "../Components/portfolio/ScrollToTopButton";
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
+
+  const [pageKey, setPageKey] = useState(0);
+
+  const handleAnimationReset = () => {
+    setPageKey((prevKey) => prevKey + 1);
+    setActiveSection("hero");
+    setIsScrolling(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +41,7 @@ export default function Portfolio() {
         "coming-soon",
         "contact",
       ];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -74,14 +83,13 @@ export default function Portfolio() {
     // Smooth scroll to section
     const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 100; // Account for fixed navbar
+      const offsetTop = element.offsetTop - 100; // Offset untuk navbar
       window.scrollTo({
         top: offsetTop,
         behavior: "smooth",
       });
     }
 
-    // Re-enable scroll detection after animation completes
     setTimeout(() => {
       setIsScrolling(false);
     }, 1000);
@@ -90,6 +98,9 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen bg-[#F5F1EB] overflow-x-hidden relative">
       <FloatingElements />
+
+      {/* Render komponen tombol dan berikan fungsi reset */}
+      <ScrollToTopButton onReset={handleAnimationReset} />
 
       {/* Navigation */}
       <motion.nav
@@ -105,7 +116,9 @@ export default function Portfolio() {
               className="px-3 sm:px-4 py-1 bg-[#FF6B6B] rounded-full border-3 border-black"
               whileHover={{ scale: 1.05 }}
             >
-              <span className="text-lg sm:text-xl font-black text-white">FS</span>
+              <span className="text-lg sm:text-xl font-black text-white">
+                FS
+              </span>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -191,8 +204,8 @@ export default function Portfolio() {
         </AnimatePresence>
       </motion.nav>
 
-      {/* Main Content */}
-      <main>
+      {/* Main Content dengan `key` untuk me-reset animasi */}
+      <main key={pageKey}>
         <section id="hero">
           <HeroSection />
         </section>
