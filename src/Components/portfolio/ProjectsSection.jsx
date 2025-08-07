@@ -187,7 +187,7 @@ export default function ProjectsSection() {
         {/* Expand Button */}
         <button
           onClick={() => openModal(currentMedia)}
-          className="absolute bottom-3 right-3 w-8 h-8 md:w-10 md:h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+          className="absolute bottom-3 right-3 w-8 h-8 md:w-10 md:h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
         >
           <Maximize2 className="w-4 h-4 md:w-5 md:h-5" />
         </button>
@@ -196,14 +196,14 @@ export default function ProjectsSection() {
           <>
             <button
               onClick={() => handleMediaNavigation(project.id, "prev")}
-              className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 md:opacity-100"
+              className="absolute left-2 md:left-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-100"
             >
               <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
             </button>
 
             <button
               onClick={() => handleMediaNavigation(project.id, "next")}
-              className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 md:opacity-100"
+              className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-100"
             >
               <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
             </button>
@@ -272,13 +272,12 @@ export default function ProjectsSection() {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                const mediaForModal =
-                  media.type === "video"
-                    ? { ...media, src: media.videoSrc }
-                    : media;
+                const mediaForModal = media.type === 'video' 
+                  ? { ...media, src: media.videoSrc }
+                  : media;
                 openModal(mediaForModal);
               }}
-              className="absolute top-1 right-1 w-5 h-5 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+              className="absolute top-1 right-1 w-5 h-5 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
             >
               <Maximize2 className="w-3 h-3" />
             </button>
@@ -381,8 +380,7 @@ export default function ProjectsSection() {
               <span className="font-black text-[#FF6B6B]">
                 {" "}
                 web development
-              </span>
-              , from concept to production
+              </span>, from concept to production
             </p>
             <div className="w-16 md:w-24 h-2 bg-[#4ECDC4] rounded-full mx-auto border-2 border-black"></div>
           </motion.div>
