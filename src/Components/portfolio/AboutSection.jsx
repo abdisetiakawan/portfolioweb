@@ -31,15 +31,15 @@ export default function AboutSection() {
             transition={{ duration: 0.8 }}
           >
             <motion.div
-              className="relative mx-auto lg:mx-0 w-64 h-64 sm:w-80 sm:h-80"
+              className="relative mx-auto lg:mx-0 w-80 h-80 sm:w-96 sm:h-96 lg:w-[420px] lg:h-[420px]"
               whileHover={{ scale: 1.02, rotate: 1 }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-[#FF6B6B] to-[#FFB347] rounded-[40px] sm:rounded-[50px] border-4 border-black shadow-2xl flex items-center justify-center">
+              <div className="w-full h-full bg-gradient-to-br from-[#FF6B6B] to-[#FFB347] rounded-[40px] sm:rounded-[50px] lg:rounded-[60px] border-4 border-black shadow-2xl flex items-center justify-center">
                 {/* Replace this with your actual photo */}
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  src="https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754564378/profile_f7qsf7.jpg"
                   alt="Professional headshot"
-                  className="w-full h-full object-cover rounded-[36px] sm:rounded-[46px]"
+                  className="w-full h-full object-cover rounded-[36px] sm:rounded-[46px] lg:rounded-[56px]"
                 />
                 {/* Fallback if you don't have a photo yet */}
                 {/* <div className="text-center text-white">
@@ -54,12 +54,12 @@ export default function AboutSection() {
               </div>
 
               <motion.div
-                className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-10 h-10 sm:w-12 sm:h-12 bg-[#4ECDC4] rounded-full border-2 sm:border-4 border-black"
+                className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 lg:-top-6 lg:-right-6 w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-[#4ECDC4] rounded-full border-2 sm:border-4 border-black"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               />
               <motion.div
-                className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-8 h-8 sm:w-8 sm:h-8 bg-[#FFB347] rounded-full border-2 sm:border-3 border-black"
+                className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 lg:-bottom-8 lg:-left-8 w-8 h-8 sm:w-8 sm:h-8 lg:w-12 lg:h-12 bg-[#FFB347] rounded-full border-2 sm:border-3 border-black"
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
               />
