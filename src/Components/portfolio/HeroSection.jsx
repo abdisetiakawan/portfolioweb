@@ -27,9 +27,9 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Fullstack
+            Your Name
             <br />
-            <span className="text-[#FF6B6B]">Developer</span>
+            <span className="text-[#FF6B6B]">Fullstack Developer</span>
           </motion.h1>
 
           <motion.p

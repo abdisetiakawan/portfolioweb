@@ -35,7 +35,14 @@ export default function AboutSection() {
               whileHover={{ scale: 1.02, rotate: 1 }}
             >
               <div className="w-full h-full bg-gradient-to-br from-[#FF6B6B] to-[#FFB347] rounded-[40px] sm:rounded-[50px] border-4 border-black shadow-2xl flex items-center justify-center">
-                <div className="text-center text-white">
+                {/* Replace this with your actual photo */}
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+                  alt="Professional headshot"
+                  className="w-full h-full object-cover rounded-[36px] sm:rounded-[46px]"
+                />
+                {/* Fallback if you don't have a photo yet */}
+                {/* <div className="text-center text-white">
                   <User className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-2 sm:mb-4" />
                   <p className="font-black text-lg sm:text-xl">
                     Your Portrait Photo
@@ -43,7 +50,7 @@ export default function AboutSection() {
                   <p className="font-medium text-sm sm:text-base">
                     Professional Headshot
                   </p>
-                </div>
+                </div> */}
               </div>
 
               <motion.div
