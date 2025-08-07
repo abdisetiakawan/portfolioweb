@@ -5,49 +5,14 @@ import { Rocket, Code, Database, Smartphone, Globe, Zap } from "lucide-react";
 export default function ComingSoonSection() {
   const upcomingProjects = [
     {
-      title: "AI-Powered Task Manager",
+      title: "APOLLO (Advanced Programming and Online Learning Laboratory)",
       description:
-        "Smart productivity app with machine learning recommendations and automated scheduling",
-      technologies: ["Go", "TensorFlow", "Vue.js", "PostgreSQL"],
+        "Project focused on creating an advanced programming and online learning platform that integrates AI-driven features for personalized learning experiences.",
+      technologies: ["Python", "TensorFlow", "Next.JS", "PostgreSQL"],
       icon: Zap,
       color: "#FF6B6B",
       status: "In Planning",
       estimatedDate: "Q2 2025",
-    },
-    {
-      title: "Microservices E-Learning Platform",
-      description:
-        "Scalable educational platform with video streaming, real-time chat, and progress tracking",
-      technologies: ["Go", "Docker", "Kafka", "Redis", "WebRTC"],
-      icon: Globe,
-      color: "#FFB347",
-      status: "Design Phase",
-      estimatedDate: "Q3 2025",
-    },
-    {
-      title: "Real-time Analytics Dashboard",
-      description:
-        "Business intelligence platform with live data visualization and predictive analytics",
-      technologies: ["Laravel", "Vue.js", "WebSockets", "ClickHouse"],
-      icon: Database,
-      color: "#4ECDC4",
-      status: "Research Phase",
-      estimatedDate: "Q4 2025",
-    },
-    {
-      title: "Mobile-First PWA Framework",
-      description:
-        "Custom Progressive Web App framework optimized for mobile performance and offline capabilities",
-      technologies: [
-        "TypeScript",
-        "Service Workers",
-        "IndexedDB",
-        "WebAssembly",
-      ],
-      icon: Smartphone,
-      color: "#FF6B6B",
-      status: "Concept",
-      estimatedDate: "Q1 2026",
     },
   ];
 
