@@ -30,7 +30,7 @@ export default function ProjectsSection() {
         "Memimpin pengembangan backend untuk platform kesehatan mental menggunakan GCP, merancang ekosistem REST API lengkap termasuk Artikel, rekomendasi Makanan, dan layanan lokasi Klinik terdekat. Mengintegrasikan tiga model machine learning dan mengimplementasikan sistem pembayaran yang aman menggunakan Midtrans.",
       images: [
         "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572030/Screenshot_2024-12-13_014312_raz9zn.png",
-        "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572031/Screenshot_2024-12-17_204859_h8csrx.png",
+        "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572032/file_2024-11-10_16.12.57_qjcsgs.png",
         "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572031/Screenshot_2024-12-17_204859_h8csrx.png",
       ],
       videos: [
