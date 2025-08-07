@@ -222,7 +222,7 @@ export default function SkillsSection() {
             Comprehensive expertise across the{" "}
             <span className="font-black text-[#FF6B6B]">
               full technology stack
-            </span>
+            </span>{" "}
             with deep specialization in backend development
           </p>
           <div className="w-16 md:w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>

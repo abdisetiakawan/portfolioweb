@@ -98,7 +98,7 @@ export default function ExperienceSection() {
             Building expertise through{" "}
             <span className="font-black text-[#FF6B6B]">
               hands-on experience
-            </span>
+            </span>{" "}
             in backend development and team leadership
           </p>
           <div className="w-16 md:w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>

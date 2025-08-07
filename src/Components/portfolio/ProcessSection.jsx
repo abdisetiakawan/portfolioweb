@@ -122,7 +122,7 @@ export default function ProcessSection() {
             <span className="font-black text-[#FF6B6B]">
               {" "}
               scalable web solutions
-            </span>
+            </span>{" "}
             from concept to production
           </p>
           <div className="w-16 md:w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>
@@ -255,7 +255,7 @@ export default function ProcessSection() {
               <span className="font-black text-[#4ECDC4]">
                 {" "}
                 successful project delivery
-              </span>
+              </span>{" "}
               every time.
             </motion.p>
           </div>

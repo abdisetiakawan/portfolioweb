@@ -166,7 +166,7 @@ export default function CertificationsSection() {
             Continuous learning through{" "}
             <span className="font-black text-[#FF6B6B]">
               industry certifications
-            </span>
+            </span>{" "}
             and professional development programs
           </p>
           <div className="w-16 md:w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>
@@ -243,7 +243,9 @@ export default function CertificationsSection() {
               </h3>
 
               <div className="flex items-center gap-2 mb-2 md:mb-3">
-                <p className="font-bold text-gray-800 text-sm md:text-base">{cert.issuer}</p>
+                <p className="font-bold text-gray-800 text-sm md:text-base">
+                  {cert.issuer}
+                </p>
               </div>
 
               <div className="flex items-center gap-2 text-xs md:text-sm text-gray-600 mb-3 md:mb-4">

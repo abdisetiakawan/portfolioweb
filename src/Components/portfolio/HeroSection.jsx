@@ -27,7 +27,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
           >
-            Your Name
+            Abdi Setiawan
             <br />
             <span className="text-[#FF6B6B]">Fullstack Developer</span>
           </motion.h1>
@@ -83,13 +83,16 @@ export default function HeroSection() {
             >
               View My Work
             </motion.button>
-            <motion.button
+            <motion.a
+              href="https://github.com/user-attachments/files/21665146/CV_Abdi.Setiawan.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-6 py-3 sm:px-8 sm:py-4 bg-white text-black font-black rounded-full border-2 sm:border-4 border-black shadow-lg text-sm sm:text-base"
               whileHover={{ scale: 1.05, rotate: 1 }}
               whileTap={{ scale: 0.95 }}
             >
               Download CV
-            </motion.button>
+            </motion.a>
           </motion.div>
         </motion.div>
 
@@ -125,11 +128,14 @@ export default function HeroSection() {
                     {`{`}
                   </div>
                   <div className="ml-4">
-                    name: <span className="text-white">"Your Name"</span>,
+                    name: <span className="text-white">"Abdi Setiawan"</span>,
                   </div>
                   <div className="ml-4">
                     role:{" "}
-                    <span className="text-[#FF6B6B]">"Backend Expert"</span>,
+                    <span className="text-[#FF6B6B]">
+                      "Fullstack Developer"
+                    </span>
+                    ,
                   </div>
                   <div className="ml-4">
                     stack:{" "}

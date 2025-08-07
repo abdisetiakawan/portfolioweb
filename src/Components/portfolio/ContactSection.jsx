@@ -24,19 +24,19 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    
+
     try {
       // Simulate API call - replace with actual endpoint
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+
       // For now, we'll use mailto as fallback
-      const mailtoLink = `mailto:your.email@example.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
+      const mailtoLink = `mailto:abdisetiawan.dev@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
       window.location.href = mailtoLink;
-      
-      setSubmitStatus('success');
+
+      setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
-      setSubmitStatus('error');
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -53,9 +53,9 @@ export default function ContactSection() {
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@example.com",
+      value: "abdisetiawan.dev@gmail.com",
       color: "#FF6B6B",
-      href: "mailto:your.email@example.com",
+      href: "mailto:abdisetiawan.dev@gmail.com",
     },
     {
       icon: MapPin,
@@ -67,9 +67,9 @@ export default function ContactSection() {
     {
       icon: Phone,
       label: "Phone",
-      value: "+62 xxx-xxxx-xxxx",
+      value: "+62 823-8910-5801",
       color: "#4ECDC4",
-      href: "tel:+62xxxxxxxxx",
+      href: "tel:+6282389105801",
     },
   ];
 
@@ -77,19 +77,19 @@ export default function ContactSection() {
     {
       icon: Github,
       label: "GitHub",
-      url: "https://github.com/yourusername",
+      url: "https://github.com/abdisetiakawan",
       color: "#FF6B6B",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      url: "https://linkedin.com/in/yourusername",
+      url: "https://www.linkedin.com/in/abdi-setiawan/",
       color: "#FFB347",
     },
     {
       icon: Mail,
       label: "Email",
-      url: "mailto:your.email@example.com",
+      url: "mailto:abdisetiawan.dev@gmail.com",
       color: "#4ECDC4",
     },
   ];
@@ -215,8 +215,8 @@ export default function ContactSection() {
                     </>
                   )}
                 </motion.button>
-                
-                {submitStatus === 'success' && (
+
+                {submitStatus === "success" && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -225,14 +225,15 @@ export default function ContactSection() {
                     ✅ Message sent successfully! I'll get back to you soon.
                   </motion.div>
                 )}
-                
-                {submitStatus === 'error' && (
+
+                {submitStatus === "error" && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="text-red-600 font-medium text-center text-sm sm:text-base"
                   >
-                    ❌ Failed to send message. Please try again or contact me directly.
+                    ❌ Failed to send message. Please try again or contact me
+                    directly.
                   </motion.div>
                 )}
               </form>
@@ -273,7 +274,9 @@ export default function ContactSection() {
                       <info.icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                     </motion.div>
                     <div>
-                      <p className="font-bold text-black text-sm sm:text-base">{info.label}</p>
+                      <p className="font-bold text-black text-sm sm:text-base">
+                        {info.label}
+                      </p>
                       {info.href ? (
                         <a
                           href={info.href}
@@ -332,14 +335,17 @@ export default function ContactSection() {
               <p className="text-gray-700 font-medium mb-4 sm:mb-6 text-sm sm:text-base">
                 Download my complete CV with detailed experience and projects
               </p>
-              <motion.button
+              <motion.a
+                href="https://github.com/user-attachments/files/21665146/CV_Abdi.Setiawan.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-[#FFB347] text-white font-black rounded-full border-2 sm:border-4 border-black shadow-lg mx-auto text-sm sm:text-base"
                 whileHover={{ scale: 1.05, rotate: 2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Download className="w-4 h-4 sm:w-5 sm:h-5" />
                 Download CV
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
         </div>

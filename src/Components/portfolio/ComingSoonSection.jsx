@@ -69,7 +69,7 @@ export default function ComingSoonSection() {
           </motion.h2>
           <p className="text-lg sm:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
             Exciting{" "}
-            <span className="font-black text-[#FF6B6B]">upcoming projects</span>
+            <span className="font-black text-[#FF6B6B]">upcoming projects</span>{" "}
             that showcase cutting-edge technologies and innovative solutions
           </p>
           <div className="w-20 sm:w-24 h-2 bg-[#FFB347] rounded-full mx-auto border-2 border-black"></div>
@@ -200,7 +200,7 @@ export default function ComingSoonSection() {
               Follow my journey as I build these{" "}
               <span className="font-black text-[#FF6B6B]">
                 innovative solutions
-              </span>
+              </span>{" "}
               using cutting-edge technologies
             </motion.p>
           </div>

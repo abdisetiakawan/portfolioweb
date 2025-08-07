@@ -76,7 +76,7 @@ export default function AboutSection() {
                 {
                   icon: GraduationCap,
                   label: "Education",
-                  value: "Computer Science",
+                  value: "Information Systems",
                   color: "#FFB347",
                 },
                 { icon: Star, label: "GPA", value: "3.7", color: "#4ECDC4" },
@@ -146,8 +146,8 @@ export default function AboutSection() {
                 <p className="text-base sm:text-lg font-medium leading-relaxed">
                   Currently a{" "}
                   <span className="font-black text-[#FFB347]">
-                    7th semester Computer Science student
-                  </span>
+                    7th semester Information Systems, student
+                  </span>{" "}
                   at Universitas Ahmad Dahlan with a strong GPA of 3.7,
                   specializing in system information with expertise in fullstack
                   development.

@@ -20,77 +20,84 @@ export default function ProjectsSection() {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      category: "Full Stack Development",
+      title: "Mentalys - Bangkit Capstone Project",
+      category: "Full Stack Development & Cloud",
       description:
-        "Modern e-commerce platform with advanced features including real-time inventory management, payment integration, and analytics dashboard.",
+        "Memimpin pengembangan backend untuk platform kesehatan mental menggunakan GCP, merancang ekosistem REST API lengkap termasuk Artikel, rekomendasi Makanan, dan layanan lokasi Klinik terdekat. Mengintegrasikan tiga model machine learning dan mengimplementasikan sistem pembayaran yang aman menggunakan Midtrans.",
       images: [
         "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop",
       ],
       videos: [
         {
-          thumbnail:
-            "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop",
-          url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+          url: "https://www.youtube.com/embed/1OV-tOAYPjQ",
+          thumbnail: "https://img.youtube.com/vi/1OV-tOAYPjQ/hqdefault.jpg",
         },
       ],
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Socket.io"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example/project",
-      duration: "3 months",
+      technologies: [
+        "GCP",
+        "REST API",
+        "Machine Learning",
+        "Midtrans",
+        "Firebase",
+        "Swagger",
+        "DevOps",
+      ],
+      liveUrl: "#",
+      githubUrl: "https://github.com/Mentalys-App",
+      duration: "4 months",
+      team: "Team Project",
+      status: "Top 50 Capstone",
+    },
+    {
+      id: 2,
+      title: "SEA Catering - Food Delivery & Meal Plan",
+      category: "Full Stack E-Commerce",
+      description:
+        "Mengembangkan platform pengiriman makanan full-stack menggunakan Laravel 12, Vue.js 3, dan Inertia.js dengan TypeScript. Menerapkan fitur e-commerce kompleks termasuk manajemen langganan, keranjang belanja, sistem checkout, dan pembayaran berulang otomatis.",
+      images: [
+        "https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=600&fit=crop",
+      ],
+      videos: [],
+      technologies: [
+        "Laravel 12",
+        "Vue.js 3",
+        "Inertia.js",
+        "TypeScript",
+        "ShadCN UI",
+        "Tailwind CSS",
+      ],
+      liveUrl: "https://sea.abdisetiawan.my.id",
+      githubUrl: "https://github.com/abdisetiakawan/SEAcatering",
+      duration: "2 weeks",
       team: "Solo Project",
       status: "Completed",
     },
     {
-      id: 2,
-      title: "Task Management App",
-      category: "Web Application",
-      description:
-        "Collaborative task management application with real-time updates and team collaboration features.",
-      images: [
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop",
-      ],
-      videos: [],
-      technologies: ["React", "Firebase", "Material-UI", "Redux"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example/project",
-      duration: "2 months",
-      team: "3 Developers",
-      status: "In Progress",
-    },
-    {
       id: 3,
-      title: "Learning Management System",
-      category: "Educational Platform",
+      title: "Go Ecommerce Fullstack",
+      category: "Backend & Frontend Development",
       description:
-        "Comprehensive LMS with course creation, student progress tracking, and interactive learning modules.",
+        "Mengembangkan backend e-commerce yang dapat diskalakan dengan Go, MySQL, dan Kafka, mengikuti prinsip-prinsip clean architecture. Menerapkan endpoint RESTful untuk otentikasi, katalog produk, manajemen keranjang, dan pemrosesan pesanan. Menggunakan Docker untuk kontainerisasi dan JWT untuk otentikasi yang aman.",
       images: [
         "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop",
         "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop",
       ],
-      videos: [
-        {
-          thumbnail:
-            "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop",
-          url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        },
-        {
-          thumbnail:
-            "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
-          url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        },
+      videos: [],
+      technologies: [
+        "Go",
+        "MySQL",
+        "Kafka",
+        "Docker",
+        "JWT",
+        "Vue.js",
+        "Clean Architecture",
       ],
-      technologies: ["Next.js", "PostgreSQL", "Prisma", "AWS S3", "WebRTC"],
-      liveUrl: "https://example.com",
-      githubUrl: "https://github.com/example/project",
-      duration: "6 months",
-      team: "5 Developers",
+      liveUrl: "#",
+      githubUrl: "https://github.com/abdisetiakawan/go-ecommerce",
+      duration: "2 months",
+      team: "Solo Project",
       status: "Completed",
     },
   ];
@@ -276,8 +283,10 @@ export default function ProjectsSection() {
           </motion.h2>
           <p className="text-lg md:text-xl text-gray-700 font-medium max-w-3xl mx-auto mb-6 md:mb-8 px-4">
             Showcasing my latest work in
-            <span className="font-black text-[#FF6B6B]"> web development</span>,
-            from concept to production
+            <span className="font-black text-[#FF6B6B]">
+              {" "}
+              web development
+            </span>, from concept to production
           </p>
           <div className="w-16 md:w-24 h-2 bg-[#4ECDC4] rounded-full mx-auto border-2 border-black"></div>
         </motion.div>
@@ -323,8 +332,8 @@ export default function ProjectsSection() {
                             index % 3 === 0
                               ? "#FF6B6B"
                               : index % 3 === 1
-                              ? "#FFB347"
-                              : "#4ECDC4",
+                                ? "#FFB347"
+                                : "#4ECDC4",
                         }}
                       ></div>
                       <span className="text-xs md:text-sm font-bold text-gray-600 uppercase tracking-wide">
