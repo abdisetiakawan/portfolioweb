@@ -21,13 +21,13 @@ export default function ProjectsSection() {
     {
       id: 1,
       title: "Mentalys - Bangkit Capstone Project",
-      category: "Full Stack Development & Cloud",
+      category: "Backend Development & Cloud",
       description:
         "Memimpin pengembangan backend untuk platform kesehatan mental menggunakan GCP, merancang ekosistem REST API lengkap termasuk Artikel, rekomendasi Makanan, dan layanan lokasi Klinik terdekat. Mengintegrasikan tiga model machine learning dan mengimplementasikan sistem pembayaran yang aman menggunakan Midtrans.",
       images: [
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+        "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572030/Screenshot_2024-12-13_014312_raz9zn.png",
+        "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572031/Screenshot_2024-12-17_204859_h8csrx.png",
+        "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572031/Screenshot_2024-12-17_204859_h8csrx.png",
       ],
       videos: [
         {
@@ -57,7 +57,10 @@ export default function ProjectsSection() {
       description:
         "Mengembangkan platform pengiriman makanan full-stack menggunakan Laravel 12, Vue.js 3, dan Inertia.js dengan TypeScript. Menerapkan fitur e-commerce kompleks termasuk manajemen langganan, keranjang belanja, sistem checkout, dan pembayaran berulang otomatis.",
       images: [
-        "https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=600&fit=crop",
+        "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572388/Screenshot_588_nz47oq.png",
+        "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572430/Screenshot_589_sl7zqz.png",
+        "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572318/Screenshot_2025-08-07_201051_slnzsm.png",
+        "https://res.cloudinary.com/dfdjd3yuz/image/upload/v1754572318/Screenshot_2025-08-07_201116_ddktj3.png",
       ],
       videos: [],
       technologies: [
@@ -68,7 +71,7 @@ export default function ProjectsSection() {
         "ShadCN UI",
         "Tailwind CSS",
       ],
-      liveUrl: "https://sea.abdisetiawan.my.id",
+      liveUrl: "https://seacatering.abdisetiawan.my.id/",
       githubUrl: "https://github.com/abdisetiakawan/SEAcatering",
       duration: "2 weeks",
       team: "Solo Project",
@@ -418,14 +421,17 @@ export default function ProjectsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <motion.button
+          <motion.a
+            href="https://github.com/abdisetiakawan?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-6 py-3 md:px-8 md:py-4 bg-[#4ECDC4] text-white font-black rounded-xl md:rounded-2xl border-2 md:border-4 border-black hover:bg-[#45B7B8] transition-colors text-sm md:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             View All Projects
             <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 inline ml-2" />
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </div>
