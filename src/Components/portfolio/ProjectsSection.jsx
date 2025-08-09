@@ -53,6 +53,7 @@ export default function ProjectsSection({ onViewAllProjects }) {
       duration: "4 months",
       team: "Team Project",
       status: "Top 50 Capstone",
+      hasLiveDemo: false, // Demo tidak tersedia
     },
     {
       id: 2,
@@ -80,6 +81,7 @@ export default function ProjectsSection({ onViewAllProjects }) {
       duration: "2 weeks",
       team: "Solo Project",
       status: "Completed",
+      hasLiveDemo: true, // Demo tersedia
     },
     {
       id: 3,
@@ -106,6 +108,7 @@ export default function ProjectsSection({ onViewAllProjects }) {
       duration: "2 months",
       team: "Solo Project",
       status: "Completed",
+      hasLiveDemo: false, // Demo tidak tersedia
     },
   ];
 
@@ -473,18 +476,20 @@ export default function ProjectsSection({ onViewAllProjects }) {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
-                      <motion.a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-[#FF6B6B] text-white font-bold rounded-xl md:rounded-2xl border-2 md:border-3 border-black hover:bg-[#FF5555] transition-colors text-sm md:text-base"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
-                        Live Demo
-                        <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
-                      </motion.a>
+                      {project.hasLiveDemo && (
+                        <motion.a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 px-4 py-2 md:px-6 md:py-3 bg-[#FF6B6B] text-white font-bold rounded-xl md:rounded-2xl border-2 md:border-3 border-black hover:bg-[#FF5555] transition-colors text-sm md:text-base"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
+                          Live Demo
+                          <ArrowUpRight className="w-3 h-3 md:w-4 md:h-4" />
+                        </motion.a>
+                      )}
 
                       <motion.a
                         href={project.githubUrl}
