@@ -29,6 +29,7 @@ export default function ProjectsPage({ onBack }) {
     window.scrollTo(0, 0);
   }, []);
 
+  // Updated projects array with hasLiveDemo attribute
   const projects = [
     {
       id: 1,
@@ -45,6 +46,7 @@ export default function ProjectsPage({ onBack }) {
       status: "Top 50 Capstone",
       year: "2024",
       featured: true,
+      hasLiveDemo: false, // No live demo
     },
     {
       id: 2,
@@ -61,6 +63,7 @@ export default function ProjectsPage({ onBack }) {
       status: "Completed",
       year: "2024",
       featured: true,
+      hasLiveDemo: true, // Has live demo
     },
     {
       id: 3,
@@ -77,6 +80,7 @@ export default function ProjectsPage({ onBack }) {
       status: "Completed",
       year: "2024",
       featured: false,
+      hasLiveDemo: false, // No live demo
     },
     {
       id: 4,
@@ -93,6 +97,7 @@ export default function ProjectsPage({ onBack }) {
       status: "Completed",
       year: "2024",
       featured: false,
+      hasLiveDemo: false, // No live demo
     },
     {
       id: 5,
@@ -109,6 +114,7 @@ export default function ProjectsPage({ onBack }) {
       status: "In Progress",
       year: "2024",
       featured: false,
+      hasLiveDemo: false, // No live demo
     },
     {
       id: 6,
@@ -125,6 +131,7 @@ export default function ProjectsPage({ onBack }) {
       status: "Completed",
       year: "2023",
       featured: false,
+      hasLiveDemo: false, // No live demo
     },
     {
       id: 7,
@@ -141,6 +148,7 @@ export default function ProjectsPage({ onBack }) {
       status: "Completed",
       year: "2023",
       featured: false,
+      hasLiveDemo: false, // No live demo
     },
     {
       id: 8,
@@ -157,6 +165,7 @@ export default function ProjectsPage({ onBack }) {
       status: "Completed",
       year: "2023",
       featured: false,
+      hasLiveDemo: false, // No live demo
     },
   ];
 
@@ -245,10 +254,12 @@ export default function ProjectsPage({ onBack }) {
           </div>
         </div>
         <div className="flex gap-2 sm:gap-3">
-          <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-[#FF6B6B] text-white font-bold rounded-xl border-2 border-black text-xs sm:text-sm" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-            Demo
-          </motion.a>
+          {project.hasLiveDemo && (
+              <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-[#FF6B6B] text-white font-bold rounded-xl border-2 border-black text-xs sm:text-sm" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                  Demo
+              </motion.a>
+          )}
           <motion.a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-white text-black font-bold rounded-xl border-2 border-black text-xs sm:text-sm" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Github className="w-3 h-3 sm:w-4 sm:h-4" />
             Code
@@ -294,9 +305,11 @@ export default function ProjectsPage({ onBack }) {
             ))}
           </div>
           <div className="flex gap-3 pt-2">
-            <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-[#FF6B6B] text-white font-bold rounded-xl border-2 border-black text-sm" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <ExternalLink className="w-4 h-4" /> Live Demo
-            </motion.a>
+            {project.hasLiveDemo && (
+              <motion.a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-[#FF6B6B] text-white font-bold rounded-xl border-2 border-black text-sm" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <ExternalLink className="w-4 h-4" /> Live Demo
+              </motion.a>
+            )}
             <motion.a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 bg-white text-black font-bold rounded-xl border-2 border-black text-sm" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Github className="w-4 h-4" /> Source Code
             </motion.a>
