@@ -272,9 +272,10 @@ export default function ProjectsSection({ onViewAllProjects }) {
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                const mediaForModal = media.type === 'video' 
-                  ? { ...media, src: media.videoSrc }
-                  : media;
+                const mediaForModal =
+                  media.type === "video"
+                    ? { ...media, src: media.videoSrc }
+                    : media;
                 openModal(mediaForModal);
               }}
               className="absolute top-1 right-1 w-5 h-5 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all opacity-100 md:opacity-0 md:group-hover:opacity-100"
@@ -307,54 +308,50 @@ export default function ProjectsSection({ onViewAllProjects }) {
 
   // Modal Component
   const MediaModal = () => {
-    if (!modalOpen || !modalMedia) return null;
-
     return (
-      <AnimatePresence>
+      <motion.div
+        className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={closeModal}
+      >
         <motion.div
-          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={closeModal}
+          className="relative max-w-6xl max-h-full w-full h-full flex items-center justify-center"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.8, opacity: 0 }}
+          transition={{ type: "spring", damping: 25, stiffness: 300 }}
+          onClick={(e) => e.stopPropagation()}
         >
-          <motion.div
-            className="relative max-w-6xl max-h-full w-full h-full flex items-center justify-center"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            onClick={(e) => e.stopPropagation()}
+          {/* Close Button */}
+          <button
+            onClick={closeModal}
+            className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all"
           >
-            {/* Close Button */}
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-all"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <X className="w-5 h-5" />
+          </button>
 
-            {/* Media Content */}
-            <div className="w-full h-full max-w-5xl max-h-[80vh] bg-white rounded-lg overflow-hidden">
-              {modalMedia.type === "image" ? (
-                <img
-                  src={modalMedia.src}
-                  alt="Enlarged view"
-                  className="w-full h-full object-contain"
-                />
-              ) : (
-                <iframe
-                  src={modalMedia.src}
-                  title="Video player"
-                  className="w-full h-full"
-                  frameBorder="0"
-                  allowFullScreen
-                ></iframe>
-              )}
-            </div>
-          </motion.div>
+          {/* Media Content */}
+          <div className="w-full h-full max-w-5xl max-h-[80vh] bg-white rounded-lg overflow-hidden">
+            {modalMedia.type === "image" ? (
+              <img
+                src={modalMedia.src}
+                alt="Enlarged view"
+                className="w-full h-full object-contain"
+              />
+            ) : (
+              <iframe
+                src={modalMedia.src}
+                title="Video player"
+                className="w-full h-full"
+                frameBorder="0"
+                allowFullScreen
+              ></iframe>
+            )}
+          </div>
         </motion.div>
-      </AnimatePresence>
+      </motion.div>
     );
   };
 
@@ -380,7 +377,8 @@ export default function ProjectsSection({ onViewAllProjects }) {
               <span className="font-black text-[#FF6B6B]">
                 {" "}
                 web development
-              </span>, from concept to production
+              </span>
+              , from concept to production
             </p>
             <div className="w-16 md:w-24 h-2 bg-[#4ECDC4] rounded-full mx-auto border-2 border-black"></div>
           </motion.div>
@@ -426,8 +424,8 @@ export default function ProjectsSection({ onViewAllProjects }) {
                               index % 3 === 0
                                 ? "#FF6B6B"
                                 : index % 3 === 1
-                                  ? "#FFB347"
-                                  : "#4ECDC4",
+                                ? "#FFB347"
+                                : "#4ECDC4",
                           }}
                         ></div>
                         <span className="text-xs md:text-sm font-bold text-gray-600 uppercase tracking-wide">
@@ -517,17 +515,17 @@ export default function ProjectsSection({ onViewAllProjects }) {
               className="px-6 py-3 md:px-8 md:py-4 bg-[#4ECDC4] text-white font-black rounded-xl md:rounded-2xl border-2 md:border-4 border-black hover:bg-[#45B7B8] transition-colors text-sm md:text-base"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              style={{ cursor: 'pointer' }}
+              style={{ cursor: "pointer" }}
             >
               View All Projects
               <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 inline ml-2" />
-            </motion.div>
+            </motion.a>
           </motion.div>
         </div>
       </div>
 
       {/* Modal */}
-      <MediaModal />
+      <AnimatePresence>{modalOpen && modalMedia && <MediaModal />}</AnimatePresence>
     </>
   );
 }
