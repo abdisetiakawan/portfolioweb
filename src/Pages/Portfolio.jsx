@@ -88,7 +88,7 @@ export default function Portfolio() {
     { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
     { id: "certifications", label: "Certificates" },
-    { id: "coming-soon", label: "Coming Soon" },
+    { id: "coming-soon", label: "Soon" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -152,7 +152,7 @@ export default function Portfolio() {
               </span>
             </motion.div>
 
-            <div className="hidden md:flex space-x-2 relative">
+            <div className="hidden lg:flex space-x-2 relative">
               {navigationItems.map((item) => (
                 <a
                   key={item.id}
@@ -181,7 +181,7 @@ export default function Portfolio() {
             </div>
 
             <motion.button
-              className="md:hidden px-2 sm:px-3 py-2 bg-white rounded-full border-3 border-black"
+              className="lg:hidden px-2 sm:px-3 py-2 bg-white rounded-full border-3 border-black"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -198,7 +198,7 @@ export default function Portfolio() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              className="md:hidden mt-2 sm:mt-4 max-w-6xl mx-auto bg-white/95 backdrop-blur-md rounded-[20px] sm:rounded-[30px] border-4 border-black shadow-2xl overflow-hidden"
+              className="lg:hidden mt-2 sm:mt-4 max-w-6xl mx-auto bg-white/95 backdrop-blur-md rounded-[20px] sm:rounded-[30px] border-4 border-black shadow-2xl overflow-hidden"
               initial={{ opacity: 0, y: -20, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
