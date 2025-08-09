@@ -16,7 +16,7 @@ import {
   X,
 } from "lucide-react";
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ onViewAllProjects }) {
   const [activeMediaIndex, setActiveMediaIndex] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMedia, setModalMedia] = useState(null);
@@ -513,16 +513,15 @@ export default function ProjectsSection() {
             viewport={{ once: true }}
           >
             <motion.a
-              href="https://github.com/abdisetiakawan?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={onViewAllProjects}
               className="px-6 py-3 md:px-8 md:py-4 bg-[#4ECDC4] text-white font-black rounded-xl md:rounded-2xl border-2 md:border-4 border-black hover:bg-[#45B7B8] transition-colors text-sm md:text-base"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              style={{ cursor: 'pointer' }}
             >
               View All Projects
               <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 inline ml-2" />
-            </motion.a>
+            </motion.div>
           </motion.div>
         </div>
       </div>

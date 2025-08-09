@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import ProjectsPage from "./ProjectsPage";
 import HeroSection from "../Components/portfolio/HeroSection";
 import AboutSection from "../Components/portfolio/AboutSection";
 import ProcessSection from "../Components/portfolio/ProcessSection";
@@ -17,6 +18,7 @@ export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [showProjectsPage, setShowProjectsPage] = useState(false);
 
   const [pageKey, setPageKey] = useState(0);
 
@@ -94,6 +96,20 @@ export default function Portfolio() {
       setIsScrolling(false);
     }, 1000);
   };
+
+  // Handle projects page navigation
+  const handleShowProjectsPage = () => {
+    setShowProjectsPage(true);
+  };
+
+  const handleBackToPortfolio = () => {
+    setShowProjectsPage(false);
+  };
+
+  // If showing projects page, render it instead
+  if (showProjectsPage) {
+    return <ProjectsPage onBack={handleBackToPortfolio} />;
+  }
 
   return (
     <div className="min-h-screen bg-[#F5F1EB] overflow-x-hidden relative">
@@ -216,7 +232,7 @@ export default function Portfolio() {
         </section>
 
         <section id="projects">
-          <ProjectsSection />
+          <ProjectsSection onViewAllProjects={handleShowProjectsPage} />
         </section>
 
         <section id="experience">
