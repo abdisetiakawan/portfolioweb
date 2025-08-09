@@ -1,6 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Code, Database, Cloud, Zap } from "lucide-react";
+
+// Komponen baru untuk efek mengetik dengan kursor berkedip
+const TypewriterEffect = ({ text, speed = 100 }) => {
+  const [displayedText, setDisplayedText] = useState("");
+  const [index, setIndex] = useState(0);
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    if (index < text.length) {
+      const timeoutId = setTimeout(() => {
+        setDisplayedText((prev) => prev + text.charAt(index));
+        setIndex((prev) => prev + 1);
+      }, speed);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [index, text, speed]);
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev);
+    }, 500); // Kecepatan berkedip 500ms
+    return () => clearInterval(cursorInterval);
+  }, []);
+
+  return (
+    <>
+      {displayedText}
+      {showCursor && <span className="blinking-cursor">|</span>}
+    </>
+  );
+};
 
 export default function HeroSection() {
   return (
@@ -29,7 +60,9 @@ export default function HeroSection() {
           >
             Abdi Setiawan
             <br />
-            <span className="text-[#FF6B6B]">Fullstack Developer</span>
+            <span className="text-[#FF6B6B]">
+              <TypewriterEffect text="Fullstack Developer" speed={100} />
+            </span>
           </motion.h1>
 
           <motion.p
