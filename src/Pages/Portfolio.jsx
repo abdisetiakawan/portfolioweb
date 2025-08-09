@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ProjectsPage from "./ProjectsPage";
@@ -19,8 +19,10 @@ export default function Portfolio() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const [showProjectsPage, setShowProjectsPage] = useState(false);
-
   const [pageKey, setPageKey] = useState(0);
+
+  // Gunakan useRef untuk menyimpan posisi scroll
+  const scrollPositionRef = useRef(0);
 
   const handleAnimationReset = () => {
     setPageKey((prevKey) => prevKey + 1);
@@ -64,6 +66,20 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isScrolling]);
 
+  // Efek untuk mengembalikan posisi scroll saat kembali ke portfolio
+  useEffect(() => {
+    if (!showProjectsPage) {
+      // Gunakan timeout untuk memastikan DOM telah di-render sebelum scroll
+      setTimeout(() => {
+        window.scrollTo({
+          top: scrollPositionRef.current,
+          behavior: 'auto' // Gunakan 'auto' untuk lompatan instan
+        });
+      }, 0);
+    }
+  }, [showProjectsPage]);
+
+
   const navigationItems = [
     { id: "hero", label: "Home" },
     { id: "about", label: "About" },
@@ -99,6 +115,8 @@ export default function Portfolio() {
 
   // Handle projects page navigation
   const handleShowProjectsPage = () => {
+    // Simpan posisi scroll saat ini sebelum pindah halaman
+    scrollPositionRef.current = window.scrollY;
     setShowProjectsPage(true);
   };
 
